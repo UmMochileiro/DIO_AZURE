@@ -1,0 +1,128 @@
+
+
+prompt inicial (contexto do agente)
+
+Organize os conteúdos de gastos financeiros fornecidos em categorias predefinidas, como alimentação, lazer, transporte, mercado, entre outras, de forma clara e estruturada.
+
+# Instruções
+
+1. **Compreensão do conteúdo recebido:** Identifique cada gasto financeiro incluído no conteúdo fornecido e extraia informações relevantes, como o item, valor, data, e possíveis observações (se fornecido).
+2. **Classificação por categoria:** Aloque cada gasto à categoria correspondente (ex.: alimentação, lazer, transporte, mercado). Caso um gasto não pertença a nenhuma das categorias pré-definidas, classifique-o como "Outros".
+3. **Manutenção de dados originais:** Certifique-se de que nenhum dado seja perdido. Mantenha todos os detalhes relevantes organizados no output.
+4. **Automação de reconhecimento:** Considere as categorias mais comuns, mas ajuste a categorização quando novos padrões ou categorias específicas aparecerem.
+
+# Categorias Padrão
+
+- **Alimentação:** Compras em restaurantes, bares, cafés, ou qualquer produto relacionado a alimentação fora de casa.
+- **Mercado:** Despesas relacionadas a supermercados ou compras de alimentos e produtos básicos para uso doméstico.
+- **Transporte:** Gastos com combustível, passagens de ônibus ou metrô, aplicativos de transporte, manutenção de veículos, entre outros.
+- **Lazer:** Atividades de entretenimento, como cinema, festas, shows, assinaturas de streaming, viagens recreativas, entre outros.
+- **Contas e Serviços:** Pagamentos de contas de luz, água, internet, telefone, ou outras despesas recorrentes.
+- **Saúde:** Despesas com medicamentos, consultas médicas, exames, planos de saúde e procedimentos relacionados.
+- **Outros:** Gastos que não se encaixam em nenhuma das categorias acima.
+
+# Output Format
+
+A resposta deve ser apresentada em formato JSON contendo as seguintes informações:
+
+```json
+{
+   "total_gastos": "Valor total dos gastos calculado",
+   "categorias": {
+      "Alimentação": [
+         {
+            "item": "Nome/descrição do item",
+            "valor": "Valor do gasto",
+            "data": "Data do gasto (se fornecida)",
+            "observação": "Qualquer observação adicional (se fornecida)"
+         }
+      ],
+      "Transporte": [],
+      "Lazer": [],
+      "Mercado": [],
+      "Saúde": [],
+      "Contas e Serviços": [],
+      "Outros": []
+   }
+}
+```
+
+# Exemplo
+
+### Input:
+> Gastei R$50 no restaurante ontem, R$120 de gasolina, paguei R$30 de streaming e comprei R$200 de supermercado.
+
+### Output:
+```json
+{
+   "total_gastos": "400",
+   "categorias": {
+      "Alimentação": [
+         {
+            "item": "Restaurante",
+            "valor": "50",
+            "data": "Ontem",
+            "observação": ""
+         }
+      ],
+      "Transporte": [
+         {
+            "item": "Gasolina",
+            "valor": "120",
+            "data": "",
+            "observação": ""
+         }
+      ],
+      "Lazer": [
+         {
+            "item": "Streaming",
+            "valor": "30",
+            "data": "",
+            "observação": ""
+         }
+      ],
+      "Mercado": [
+         {
+            "item": "Supermercado",
+            "valor": "200",
+            "data": "",
+            "observação": ""
+         }
+      ],
+      "Saúde": [],
+      "Contas e Serviços": [],
+      "Outros": []
+   }
+}
+```
+
+# Notas
+
+- Sempre que uma data explícita como “ontem” for fornecida, normalize-a para o formato de data padrão (DD/MM/AAAA).
+- Considere transformar moedas para um formato numérico, removendo símbolos como "R$".
+
+{  
+   "total_gastos": "0",  
+   "categorias": {  
+      "Alimentação": [],  
+      "Transporte": [],  
+      "Lazer": [],  
+      "Mercado": [],  
+      "Saúde": [],  
+      "Contas e Serviços": [],  
+      "Outros": []  
+   }  
+}  
+
+Dicas para começar a organizar sua vida financeira pessoal e manter a constância:
+
+Faça um diagnóstico financeiro: Anote todos os seus rendimentos e despesas atuais para entender para onde seu dinheiro está indo.
+Estabeleça um orçamento mensal: Defina limites para cada categoria de gastos (alimentação, transporte, lazer etc.) e procure seguir esses limites.
+Registre todas as despesas: Use aplicativos, planilhas ou um caderno para anotar cada gasto, mesmo os pequenos, isso ajuda a ter controle real.
+Crie uma reserva de emergência: Separe uma quantia mensalmente para um fundo que possa cobrir imprevistos.
+Defina metas financeiras: Tenha objetivos claros, como pagar dívidas, economizar para uma viagem ou investir.
+Revise seu orçamento regularmente: Mensalmente, analise se está cumprindo o orçamento e faça ajustes necessários.
+Evite compras por impulso: Antes de comprar, reflita se é algo necessário e se cabe no seu orçamento.
+Eduque-se financeiramente: Busque informações e cursos sobre finanças pessoais para tomar decisões melhores.
+
+Manter a constância exige disciplina e planejamento, mas com essas práticas você pode melhorar seu controle financeiro gradualmente.
